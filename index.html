@@ -1,196 +1,285 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jimmy Fashion Muslim</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Busana Muslim - Inspirasi Muslimadani</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8f9fa;
-}
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
 
-/* HEADER */
-header {
-    background-color: #0f3d2e;
-    color: white;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        /* Navigasi & Header (Flexbox) */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.logo {
-    height: 50px;
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-nav a {
-    color: white;
-    margin-left: 25px;
-    text-decoration: none;
-    font-weight: 500;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a5c40; /* Warna hijau khas Islami/Muslimadani */
+            text-decoration: none;
+        }
 
-nav a:hover {
-    text-decoration: underline;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
 
-/* HERO */
-.hero {
-    height: 400px;
-    background: url('banner.jpg') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-}
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
 
-/* SECTION */
-.section {
-    padding: 60px 50px;
-    text-align: center;
-}
+        nav ul li a:hover {
+            color: #1a5c40;
+        }
 
-/* PRODUK GRID */
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-}
+        .cart-btn {
+            background-color: #1a5c40;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
 
-/* CARD */
-.product-card {
-    background-color: white;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: 0.3s;
-}
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 92, 64, 0.8), rgba(26, 92, 64, 0.8)), url('https://via.placeholder.com/1200x400') center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
 
-.product-card:hover {
-    transform: translateY(-5px);
-}
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
 
-/* GAMBAR PRODUK */
-.product-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover; /* ini penting biar rapi */
-    border-radius: 10px;
-}
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
 
-/* TEKS */
-.product-card h3 {
-    margin: 10px 0 5px;
-}
+        /* Layout Utama (CSS Grid) */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-.product-card p {
-    color: #0f3d2e;
-    font-weight: bold;
-}
+        section {
+            margin-bottom: 60px;
+        }
 
-/* BUTTON */
-.btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 15px;
-    background-color: #0f3d2e;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-}
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: #1a5c40;
+            margin-bottom: 30px;
+            position: relative;
+        }
 
-.btn:hover {
-    background-color: #145c45;
-}
+        /* Grid Produk yang Responsif */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
 
-/* FOOTER */
-footer {
-    background-color: #0f3d2e;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
+        /* Komponen Kartu Produk */
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding-bottom: 20px;
+        }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-    }
-}
-</style>
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-price {
+            color: #d9534f;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .add-to-cart {
+            background-color: transparent;
+            color: #1a5c40;
+            border: 2px solid #1a5c40;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #1a5c40;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a5c40;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <img src="logo.jpg" class="logo" alt="Logo Jimmy Fashion">
-    <nav>
-        <a href="#">Beranda</a>
-        <a href="#produk">Produk</a>
-        <a href="#tentang">Tentang</a>
-        <a href="#kontak">Kontak</a>
-    </nav>
-</header>
-
-<div class="hero">
-    Koleksi Pakaian Muslim Terbaik
-</div>
-
-<section id="produk" class="section">
-    <h2>Produk Kami</h2>
-
-    <div class="products">
-
-        <div class="product-card">
-            <img src="gamis.jpg" alt="Gamis">
-            <h3>Gamis Elegan</h3>
-            <p>Rp 250.000</p>
-            <a href="#" class="btn">Beli</a>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">TokoMuslim</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#featured-products">Koleksi Kurta</a></li>
+                    <li><a href="#new-arrivals">Terbaru</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                </ul>
+            </nav>
+            <button class="cart-btn">Keranjang (0)</button>
         </div>
+    </header>
 
-        <div class="product-card">
-            <img src="koko.jpg" alt="Koko">
-            <h3>Koko Premium</h3>
-            <p>Rp 180.000</p>
-            <a href="#" class="btn">Beli</a>
-        </div>
+    <section class="hero">
+        <h1>Koleksi Busana Muslim Pria Modern</h1>
+        <p>Tampil elegan dan syar'i dengan balutan koko, kurta, dan gamis berkualitas premium.</p>
+        <button class="cart-btn">Belanja Sekarang</button>
+    </section>
 
-        <div class="product-card">
-            <img src="hijab.jpg" alt="Hijab">
-            <h3>Hijab Modern</h3>
-            <p>Rp 75.000</p>
-            <a href="#" class="btn">Beli</a>
-        </div>
+    <main>
+        
+        <section id="featured-products">
+            <h2 class="section-title">Produk Terlaris</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="koko.jpg" alt="Koko Kurta Al-Fatih">
+                    <div class="product-info">
+                        <h3 class="product-title">Koko Kurta Al-Fatih</h3>
+                        <span class="product-price">Rp 225.000</span>
+                        <button class="add-to-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
 
-        <div class="product-card">
-            <img src="tunik.jpg" alt="Tunik">
-            <h3>Tunik Muslimah</h3>
-            <p>Rp 200.000</p>
-            <a href="#" class="btn">Beli</a>
-        </div>
+                <div class="product-card">
+                    <img src="sirwal.jpg" alt="Sirwal Chino Modern">
+                    <div class="product-info">
+                        <h3 class="product-title">Sirwal Chino Modern</h3>
+                        <span class="product-price">Rp 185.000</span>
+                        <button class="add-to-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
 
-    </div>
-</section>
+                <div class="product-card">
+                    <img src="gamis pria.jpg" alt="Gamis Pria Oman">
+                    <div class="product-info">
+                        <h3 class="product-title">Gamis Pria Oman</h3>
+                        <span class="product-price">Rp 299.000</span>
+                        <button class="add-to-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="kemko.jpg" alt="Kemeja Koko Lengan Pendek">
+                    <div class="product-info">
+                        <h3 class="product-title">Kemko Casual Premium</h3>
+                        <span class="product-price">Rp 195.000</span>
+                        <button class="add-to-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="tentang" class="section">
-    <h2>Tentang Kami</h2>
-    <p>Kami menyediakan pakaian muslim berkualitas dengan desain modern, elegan, dan nyaman digunakan sehari-hari.</p>
-</section>
+        <section id="new-arrivals">
+            <h2 class="section-title">Kedatangan Baru</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="peci.jpg" alt="Peci Rajut Premium">
+                    <div class="product-info">
+                        <h3 class="product-title">Peci Rajut Turki</h3>
+                        <span class="product-price">Rp 45.000</span>
+                        <button class="add-to-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
 
-<section id="kontak" class="section">
-    <h2>Kontak</h2>
-    <p>WhatsApp: 089526226489</p>
-    <p>Email: jimmyjulfan597@gmail.com</p>
-</section>
+                <div class="product-card">
+                    <img src="jubah.jpg" alt="Jubah Hoodie">
+                    <div class="product-info">
+                        <h3 class="product-title">Jubah Hoodie Sporty</h3>
+                        <span class="product-price">Rp 310.000</span>
+                        <button class="add-to-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<footer>
-    <p>© 2026 Jimmy Fashion Muslim. All rights reserved.</p>
-</footer>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 TokoMuslim by Mahasiswa Informatika. Hak Cipta Dilindungi.</p>
+    </footer>
 
 </body>
 </html>
